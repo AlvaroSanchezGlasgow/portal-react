@@ -17,6 +17,7 @@
     "env-cmd": "^10.1.0",
     "moment": "^2.29.1",
     "mui-datatables": "^3.3.0",
+    "node-sass": "^5.0.0",
     "query-string": "^6.13.1",
     "react": "^16.13.1",
     "react-cookie": "^4.0.3",
