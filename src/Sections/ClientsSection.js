@@ -194,7 +194,7 @@ function ClientsSection() {
   const fetchData = async () => {
     axios
       .get(`${process.env.REACT_APP_API_ROOT_URL}/client-management/clients`, {
-        headers: {},
+        headers: {'Access-Control-Allow-Origin': '*'},
       })
       .then(function (response) {
         setResult(response.data);

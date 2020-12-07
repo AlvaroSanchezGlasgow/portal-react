@@ -94,9 +94,7 @@ useEffect(() => { fetchData() }, []);
        
         //We call the api
         axios.get(`${process.env.REACT_APP_API_ROOT_URL}/client-tracker/tracks/${clientUrl}`, {
-            headers: {
-              
-            }
+            headers: {'Access-Control-Allow-Origin': '*'}
         }
         )
             .then(function (response) {
@@ -125,9 +123,7 @@ useEffect(() => { fetchData() }, []);
         }).join(', ');
 
         axios.delete(`${process.env.REACT_APP_API_ROOT_URL}/client-tracker/tracks/${result}`, {
-            headers: {
-              
-            }
+            headers: {'Access-Control-Allow-Origin': '*'}
         }).then(function (response) {
             history.push("/");
                 history.push("/client_tracker?client="+clientUrl);
