@@ -38,7 +38,7 @@ function AddTrackPage() {
     //We call the api
     axios
       .get(`${process.env.REACT_APP_API_ROOT_URL}/tracker-areas/areas`, {
-        headers: {'Access-Control-Allow-Origin': '*'},
+        headers: {},
       })
       .then(function (response) {
         setAreaList(response.data);
@@ -95,7 +95,7 @@ function AddTrackPage() {
    
       axios
         .post(`${process.env.REACT_APP_API_ROOT_URL}/client-tracker/tracks`, params, {
-          headers: {'Access-Control-Allow-Origin': '*'},
+          headers: {},
         })
         .then(function (response) {
           history.push(`/client_tracker?client=${clientId}`);

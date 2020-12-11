@@ -28,7 +28,7 @@ function AddContactForm(props) {
 
     axios
       .get(`${process.env.REACT_APP_API_ROOT_URL}/contact-management/contacts/${clientUrl}`, {
-        headers: {'Access-Control-Allow-Origin': '*'},
+        headers: {},
       })
       .then(function (response) {
         setContactsObject(response.data);
@@ -83,7 +83,7 @@ function AddContactForm(props) {
 
       axios
         .post(`${process.env.REACT_APP_API_ROOT_URL}/contact-management/contacts`, params, {
-          headers: {'Access-Control-Allow-Origin': '*'},
+          headers: {},
         })
         .then(function (response) {
           fetchData();
@@ -99,7 +99,7 @@ function AddContactForm(props) {
   const handleDeleteContacts = (id) => {
     axios
       .delete(`${process.env.REACT_APP_API_ROOT_URL}/contact-management/contacts/${id}`, {
-        headers: {'Access-Control-Allow-Origin': '*'},
+        headers: {},
       })
       .then(function (response) {
         fetchData();
