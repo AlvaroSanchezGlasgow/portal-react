@@ -6,7 +6,7 @@ import MUIDataTable from "mui-datatables";
 import { useHistory } from "react-router-dom";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import CloseIcon from "@material-ui/icons/Close";
-//import SpinnerComponent from "../Components/SpinnerComponent";
+import SpinnerComponent from "../Components/SpinnerComponent";
 
 const axios = require("axios");
 
@@ -218,14 +218,15 @@ function ClientsSection() {
       <h2>Clients Dashboard</h2>
       <div className="columns is-centered">
         <div className="column">
-        
+          {!result[0] && <SpinnerComponent />}
+          {result[0] && (
             <MUIDataTable
               title={""}
               data={result}
               columns={columns}
               options={options}
             />
-        
+          )}
         </div>
       </div>
 
