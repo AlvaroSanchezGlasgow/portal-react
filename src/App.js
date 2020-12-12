@@ -22,6 +22,11 @@ import ScrollToTop from "./Components/ScrollToTop";
 import NewClientPage from "./ClientAdmin/NewClientPage";
 import EditClientPage from "./ClientAdmin/EditClientPage";
 import Test from "./ClientAdmin/test";
+//Google Analytics
+import ReactGA from 'react-ga';
+ReactGA.initialize('G-9KWYJNR0M7');
+ReactGA.pageview(window.location.pathname + window.location.search);
+
 
 function App() {
   return (
