@@ -6,6 +6,7 @@ import MUIDataTable from "mui-datatables";
 import { useHistory } from "react-router-dom";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import CloseIcon from "@material-ui/icons/Close";
+import SpinnerComponent from "../Components/SpinnerComponent";
 
 const axios = require("axios");
 
@@ -28,22 +29,22 @@ function ClientsSection() {
 
   const columns = [
     {
-        name: "id",
-        label: "ID",
-        options: {
-            display: false,
-            filter: false
-        },
+      name: "id",
+      label: "ID",
+      options: {
+        display: false,
+        filter: false,
       },
-   
+    },
+
     {
       name: "name",
       label: "NAME",
       options: {
         filter: true,
-        customBodyRender: (value) => {          
-              return <strong>{value}</strong>;
-          },
+        customBodyRender: (value) => {
+          return <strong>{value}</strong>;
+        },
       },
     },
     {
@@ -54,20 +55,20 @@ function ClientsSection() {
       },
     },
     {
-        name: "tierDescription",
-        label: "TIER",
-        options: {
-          filter: true,
-        },
+      name: "tierDescription",
+      label: "TIER",
+      options: {
+        filter: true,
       },
-  
-      {
-        name: "sectorDescription",
-        label: "SECTOR",
-        options: {
-          filter: true,
-        },
+    },
+
+    {
+      name: "sectorDescription",
+      label: "SECTOR",
+      options: {
+        filter: true,
       },
+    },
 
     {
       name: "lastUpdate",
@@ -214,20 +215,21 @@ function ClientsSection() {
 
   return (
     <>
-  <h2>Clients Dashboard</h2>
+      <h2>Clients Dashboard</h2>
       <div className="columns is-centered">
-        
-          <div className="column">
-        <MUIDataTable
-          title={""}
-          data={result}
-          columns={columns}
-          options={options}
-        />
+        <div className="column">
+          {!result.id && <SpinnerComponent />}
+          {result.id && (
+            <MUIDataTable
+              title={""}
+              data={result}
+              columns={columns}
+              options={options}
+            />
+          )}
         </div>
-       
       </div>
-     
+
       <hr />
     </>
   );
