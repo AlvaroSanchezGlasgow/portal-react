@@ -94,6 +94,7 @@ function NewUserPage() {
 
   return (
     <>
+    <section>
       <div class="container">
         <NavbarComponent />
         <div class="card">
@@ -350,6 +351,7 @@ function NewUserPage() {
       <br />
       <br />
       <br />
+      </section>
     </>
   );
 }

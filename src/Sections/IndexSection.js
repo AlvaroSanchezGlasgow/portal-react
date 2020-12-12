@@ -84,9 +84,7 @@ function IndexSection() {
                 </div>
                 <small>
                   <p>
-                    Consectetur cras eu rhoncus netus dignissim hendrerit? Purus
-                    aptent scelerisque fusce enim nunc. Fames sagittis magnis
-                    proin lectus accumsan nascetur nisl ad.
+                    internal tool to track and manage business contacts development
                   </p>
                 </small>
 

@@ -111,6 +111,7 @@ function AddTrackPage() {
 
   return (
     <>
+    <section>
       <div class="container">
         <PublicNavbarComponent />
         
@@ -276,6 +277,7 @@ function AddTrackPage() {
           </div>
         </div>
       </div>
+      </section>
     </>
   );
 }

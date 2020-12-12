@@ -114,6 +114,7 @@ function NewClientPage() {
 
   return (
     <>
+    <section>
       <div class="container">
         <NavbarComponent />
         <div class="card">
@@ -320,6 +321,7 @@ function NewClientPage() {
       <br />
       <br />
       <br />
+      </section>
     </>
   );
 }

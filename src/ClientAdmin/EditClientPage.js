@@ -140,6 +140,7 @@ function EditClientPage() {
 
   return (
     <>
+    <section>
       <div class="container">
         <NavbarComponent />
         <div class="card">
@@ -361,6 +362,7 @@ function EditClientPage() {
       <br />
       <br />
       <br />
+      </section>
     </>
   );
 }

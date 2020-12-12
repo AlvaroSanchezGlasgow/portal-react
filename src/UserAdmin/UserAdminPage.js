@@ -108,6 +108,7 @@ function UserAdminPage() {
 
   return (
     <>
+    <section>
       <div class="container">
         <NavbarComponent />
         <div class="card">
@@ -318,6 +319,7 @@ function UserAdminPage() {
           </div>
         </div>
       </div>
+      </section>
     </>
   );
 }

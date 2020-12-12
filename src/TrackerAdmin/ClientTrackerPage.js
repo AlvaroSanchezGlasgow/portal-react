@@ -46,6 +46,7 @@ function ClientTrackerPage() {
 
   return (
     <>
+    <section>
       <div class="container">
         <br />
 
@@ -136,6 +137,7 @@ function ClientTrackerPage() {
         <br />
         <br />
       </div>
+      </section>
     </>
   );
 }

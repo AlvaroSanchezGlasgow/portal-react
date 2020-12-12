@@ -112,6 +112,7 @@ function ClientListPage() {
 
   return (
     <>
+      <section>
       <div className="container">
         <NavbarComponent />
         
@@ -138,6 +139,7 @@ function ClientListPage() {
           <div className="column"></div>
         </div>
       </div>
+      </section>
     </>
   );
 }

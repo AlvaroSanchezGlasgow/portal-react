@@ -145,7 +145,7 @@ function IndexPage() {
   return (
     <>
    
-   
+   <section>
       <div className="container">
         
         <NavbarComponent />
@@ -173,7 +173,7 @@ function IndexPage() {
           <div className="column"></div>
         </div>
       </div>
-      
+      </section>
      
     </>
   );
