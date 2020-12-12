@@ -51,6 +51,7 @@ function ClientsSection() {
       name: "clientManager",
       label: "CLIENT MANAGER",
       options: {
+        display: false,
         filter: true,
       },
     },
@@ -216,20 +217,27 @@ function ClientsSection() {
   return (
     <>
       <h2>Clients Dashboard</h2>
-      <div className="columns is-centered">
+      <div id="clients_dashboard">
+    
+        <div className="columns is-centered is-mobile">
         <div className="column">
-          {!result[0] && <SpinnerComponent />}
-          {result[0] && (
-            <MUIDataTable
-              title={""}
-              data={result}
-              columns={columns}
-              options={options}
-            />
-          )}
-        </div>
+          </div>
+          <div className="column">
+              {!result[0] && <SpinnerComponent />}
+              {result[0] && (
+                <MUIDataTable
+                  title={""}
+                  data={result}
+                  columns={columns}
+                  options={options}
+                />
+              )}
+            </div>
+            <div className="column">
+          </div>
+          </div>
+       
       </div>
-
       <hr />
     </>
   );
