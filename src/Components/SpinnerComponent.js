@@ -6,7 +6,7 @@ function SpinnerComponent() {
     <>
          <Loader
          type="ThreeDots"
-         color="#9aae04"
+         color="#005A87"
          height={100}
          width={200}
          

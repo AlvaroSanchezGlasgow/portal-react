@@ -1,7 +1,9 @@
 import React from "react";
-import logo_everis from "../Static/Img/images/logo-everis.png";
+import { useHistory } from "react-router-dom";
 
 export const PublicNavbarComponent = () => {
+  let history = useHistory();
+
   return (
     <>
       <nav
@@ -11,19 +13,19 @@ export const PublicNavbarComponent = () => {
       >
         <div class="navbar-brand">
           <div class="navbar-item">
-            <figure class="image is-48x48">
-              <figure class="image">
-                <img src={logo_everis} alt="logo everis"/>
-              </figure>
-            </figure>
+          <h3>Business Development App</h3>
           </div>
         </div>
         <div class="navbar-item">
-            <h3>Business Development</h3>
+          
         </div>
 
         <div class="navbar-end">
-          <div class="navbar-item"></div>
+          <div class="navbar-item">
+          <button className="button is-dark" onClick={() => history.push("/users")}>
+            Admin
+          </button>
+          </div>
         </div>
       </nav>
 

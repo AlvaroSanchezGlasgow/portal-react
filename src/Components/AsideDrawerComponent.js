@@ -4,16 +4,18 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Fab from "@material-ui/core/Fab";
 import List from "@material-ui/core/List";
-import GroupAddIcon from "@material-ui/icons/GroupAdd";
+import HomeIcon from '@material-ui/icons/Home';
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import GroupIcon from "@material-ui/icons/Group";
 import PeopleOutlineIcon from "@material-ui/icons/PeopleOutline";
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle';
 import Tooltip from "@material-ui/core/Tooltip";
-import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
-import logo_everis from "../Static/Img/images/logo-everis.png";
+import logo from "../assets/img/img/bip_logo.png";
+
+import business_plan from "../assets/img/svg/business_plan.svg";
 import { useHistory } from "react-router-dom";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MenuIcon from '@material-ui/icons/Menu';
@@ -61,71 +63,40 @@ function AsideDrawerComponent() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <figure class="image">
-        <img src={logo_everis} alt="logo everis"/>
+      <img alt="" src={logo} />
       </figure>
       <br />
       <List>
-        <ListItem button="true" onClick={() => history.push("/index")}>
+      <ListItem button="true" onClick={() => history.push("/home")}>
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Home"} />
+        </ListItem>
+        <Divider />
+        <ListItem button="true" onClick={() => history.push("/users")}>
           <ListItemIcon>
             <GroupIcon />
           </ListItemIcon>
-          <ListItemText primary={"App Users"} />
+          <ListItemText primary={"Users Administration"} />
         </ListItem>
-        <ListItem button="true" onClick={() => history.push("/new-user")}>
-          <ListItemIcon>
-            <GroupAddIcon />
-          </ListItemIcon>
-          <ListItemText primary={"New User"} />
-        </ListItem>
-
+     
         <ListItem button="true" onClick={() => history.push("/client-mng")}>
           <ListItemIcon>
             <PeopleOutlineIcon />
           </ListItemIcon>
-          <ListItemText primary={"Clients List"} />
+          <ListItemText primary={"Clients Administration"} />
         </ListItem>
-        <ListItem button="true" onClick={() => history.push("/new-client")}>
+
+        <ListItem button="true" onClick={() => history.push("/my-clients")}>
           <ListItemIcon>
-            <PersonOutlineIcon />
+            <SupervisedUserCircleIcon />
           </ListItemIcon>
-          <ListItemText primary={"New Client"} />
+          <ListItemText primary={"My Clients"} />
         </ListItem>
-        <Divider />
-        <ListItem
-          button="true"
-          onClick={() =>
-            axios
-              .get(
-                `${
-                  process.env.REACT_APP_API_ROOT_URL
-                }/oauth/revoke-token/${sessionStorage.getItem("username")}`,
-                {
-                  headers: {
-                    "Content-Type": "application/json",
-                    Authorization:
-                      "Bearer " + sessionStorage.getItem("user_token"),
-                  },
-                }
-              )
-              .then(function (response) {
-                // handle success
-              })
-              .catch(function (error) {
-                // handle error
-              })
-              .finally(function () {
-                // always executed
-                sessionStorage.removeItem("user_token");
-                history.push("/");
-              })
-          }
-        >
-          <ListItemIcon>
-            {" "}
-            <ExitToAppIcon />{" "}
-          </ListItemIcon>
-          <ListItemText primary={"Logout"} />
-        </ListItem>
+     
+     
+        
       </List>
     </div>
   );

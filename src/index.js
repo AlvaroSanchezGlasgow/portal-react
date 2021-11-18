@@ -8,14 +8,16 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
   palette: {
-
     secundary: {
-      main: '#EFF0EB'
+      main: "#707070",
     },
     primary: {
-      main: '#9aae04'
-    }
-  }
+      main: "#005A87",
+    },
+    danger: {
+      main: "#ff5a00",
+    },
+  },
 });
 
 ReactDOM.render(

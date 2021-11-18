@@ -1,15 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import "./App.css";
-import HomePage from "./HomePage/HomePage";
-import IndexPage from "./IndexPage/IndexPage";
-import UserAdminPage from "./UserAdmin/UserAdminPage";
-import NewUserPage from "./UserAdmin/NewUserPage";
-import AddTrackPage from "./TrackerAdmin/AddTrackPage";
-import ClientTrackerPage from "./TrackerAdmin/ClientTrackerPage";
-import ClientListPage from "./ClientAdmin/ClientListPage";
-import styles from "./Static/Scss/styles.scss";
-
+import styles from "./assets/scss/styles.scss";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorFallBackComponent from "./components/ErrorFallBack";
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,44 +10,103 @@ import {
   Route,
 } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute.js";
-import FooterMenuComponent from "./Components/FooterMenuComponent.js";
-import ScrollToTop from "./Components/ScrollToTop";
-import NewClientPage from "./ClientAdmin/NewClientPage";
-import EditClientPage from "./ClientAdmin/EditClientPage";
-import Test from "./ClientAdmin/test";
+import FooterMenuComponent from "./components/FooterMenuComponent.js";
+import ScrollToTop from "./components/ScrollToTop";
+import SpinnerComponent from "./components/SpinnerComponent";
+
+const HomePage = React.lazy(() => import("./Pages/HomePage/HomePage"));
+const UsersPage = React.lazy(() => import("./Pages/UserAdmin/UsersPage"));
+const UserAdminPage = React.lazy(() =>
+  import("./Pages/UserAdmin/UserAdminPage")
+);
+const NewUserPage = React.lazy(() => import("./Pages/UserAdmin/NewUserPage"));
+const AddTrackPage = React.lazy(() =>
+  import("./Pages/TrackerAdmin/AddTrackPage")
+);
+const ClientTrackerPage = React.lazy(() =>
+  import("./Pages/TrackerAdmin/ClientTrackerPage")
+);
+const ClientListPage = React.lazy(() =>
+  import("./Pages/ClientAdmin/ClientListPage")
+);
+const LoginPage = React.lazy(() => import("./Pages/LoginPage/LoginPage"));
+const NewClientPage = React.lazy(() =>
+  import("./Pages/ClientAdmin/NewClientPage")
+);
+const EditClientPage = React.lazy(() =>
+  import("./Pages/ClientAdmin/EditClientPage")
+);
+const MyClientsPage = React.lazy(() =>
+  import("./Pages/MyClientsPage/MyClientsPage")
+);
 
 function App() {
   return (
     <>
-  
+      <React.Suspense
+        fallback={
+          <div className="container">
+            <div className="columns is-centered is-vcentered">
+              <div className="column">
+                <SpinnerComponent />
+              </div>
+            </div>
+          </div>
+        }
+      >
         <Router>
           <ScrollToTop />
           <Switch>
-         
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/client_tracker" component={ClientTrackerPage} />
-            <Route exact path="/add_track" component={AddTrackPage} />
-            <PrivateRoute exact path="/index" component={IndexPage} />
-            <PrivateRoute exact path="/admin" component={UserAdminPage} />
-            <PrivateRoute exact path="/new-user" component={NewUserPage} />
-            <PrivateRoute exact path="/client-mng" component={ClientListPage} />
-            <PrivateRoute exact path="/new-client" component={NewClientPage} />
-            <PrivateRoute
-              exact
-              path="/edit_client"
-              component={EditClientPage}
-            />
-            <Redirect to="/" />
-            
+            <ErrorBoundary
+              FallbackComponent={ErrorFallBackComponent}
+              onReset={() => {
+                // reset the state of your app so the error doesn't happen again
+              }}
+            >
+              <Route exact path="/" component={LoginPage} />
+              <PrivateRoute exact path="/home" component={HomePage} />
+              <PrivateRoute
+                exact
+                path="/client_tracker"
+                component={ClientTrackerPage}
+              />
+              <PrivateRoute exact path="/add_track" component={AddTrackPage} />
+              <PrivateRoute exact path="/users" component={UsersPage} />
+              <PrivateRoute exact path="/admin" component={UserAdminPage} />
+              <PrivateRoute exact path="/new-user" component={NewUserPage} />
+              <PrivateRoute
+                exact
+                path="/client-mng"
+                component={ClientListPage}
+              />
+              <PrivateRoute
+                exact
+                path="/new-client"
+                component={NewClientPage}
+              />
+              <PrivateRoute
+                exact
+                path="/edit_client"
+                component={EditClientPage}
+              />
+              <PrivateRoute
+                exact
+                path="/my-clients"
+                component={MyClientsPage}
+              />
+              <Redirect to="/" />
+            </ErrorBoundary>
           </Switch>
         </Router>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <FooterMenuComponent />
-       
+      </React.Suspense>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <FooterMenuComponent />
     </>
   );
 }

@@ -1,0 +1,56 @@
+@charset "utf-8";
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
+
+// Brand colors setup
+/*
+$green: #9aae04;
+$pink: #FA7C91;
+$brown: #757763;
+$black: #505050;
+$beige-light: #D0D1CD;
+$beige-lighter: #EFF0EB;
+$grey-light: #efefef;
+*/
+
+$green: #6c8d31;
+$blue: #005A87;
+$orange: #ff5a00;
+$black: #3b3f46;
+$beige-light: #babebf;
+$beige-lighter: #e8e9e9;
+$dark-mode:#4c5342;
+
+
+// Update Bulma's global variables
+$family-sans-serif: 'Source Sans Pro', sans-serif;
+$grey-dark: $black;
+$grey-light: $beige-light;
+$primary: $blue;
+$secundary:$black;
+$danger:$orange;
+$link: $black;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+//$link-hover: $black;
+//$link-invert: $black;
+//$link-visited: $black;
+
+// Update some of Bulma's component variables
+//$body-background-color: white;
+//$body-color: $black;
+$control-border-width: 0.5px;
+$input-border-color: $grey-dark;
+$input-shadow: none;
+$navbar-height:4rem;
+
+
+
+
+// Import components
+@import '../../../node_modules/bulma/bulma.sass';
+@import "../../../node_modules/bulma-calendar/src/sass/timepicker.sass";
+@import "../../../node_modules/bulma-calendar/src/sass/index.sass";
+@import "../../../node_modules/react-loader-spinner/dist/loader/css/react-spinner-loader.css";
